@@ -1,0 +1,87 @@
+[project]
+name = "api-yamdb"
+version = "0.0.1"
+authors = [
+    {name = "mign0n", email = "mign0n.git@gmail.com"},
+    {name = "monteg179", email = "monteg179@yandex.ru"},
+    {name = "sorath2", email = "sorath2@yandex.ru"},
+]
+description = ""
+readme = "README.md"
+requires-python = ">=3.7, <=3.9.10"
+dependencies = [
+    "Django ==3.2.19",
+    "django-filter",
+    "djangorestframework",
+    "djangorestframework-simplejwt",
+    "drf-spectacular",
+    "drf-spectacular[sidecar]",
+    "PyJWT ==2.4.0",
+    "requests"
+]
+
+[project.license]
+file = "LICENSE"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "django-stubs",
+    "django-stubs-ext",
+    "django-testdata",
+    "flake8 ==3.9.2",
+    "flake8-annotations",
+    "flake8-commas",
+    "isort",
+    "mypy",
+    "mypy-extensions",
+    "pep8-naming",
+    "pymarkdownlnt",
+    "pytest",
+    "pytest-django",
+]
+
+[tool.black]
+extend-exclude = "migrations/*"
+line-length = 79
+skip-string-normalization = "true"
+
+[tool.django-stubs]
+django_settings_module = "api_yamdb.settings"
+
+[tool.isort]
+profile = "black"
+line_length = 79
+src_paths = "api_yamdb"
+extend_skip = ["migrations"]
+
+[tool.mypy]
+python_version = "3.7"
+plugins = ["mypy_django_plugin.main"]
+check_untyped_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+ignore_errors = false
+ignore_missing_imports = true
+implicit_reexport = false
+strict_optional = true
+strict_equality = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+warn_no_return = true
+mypy_path = "api_yamdb"
+disable_error_code = ["var-annotated", "attr-defined"]
+
+[tool.pytest.ini_options]
+pythonpath = "api_yamdb/"
+DJANGO_SETTINGS_MODULE = "api_yamdb.settings"
+norecursedirs = ["venv/*"]
+addopts = "-vv -p no:cacheprovider"
+testpaths = ["tests/"]
+python_files = ["test_*.py"]
+filterwarnings = [
+    'ignore:pkg_resources is deprecated as an API:DeprecationWarning',
+]

@@ -2,9 +2,9 @@
 name = "api-yamdb"
 version = "0.0.1"
 authors = [
-    {name = "mign0n", email = "mign0n.git@gmail.com"},
-    {name = "monteg179", email = "monteg179@yandex.ru"},
-    {name = "sorath2", email = "sorath2@yandex.ru"},
+    {name = "mign0n"},
+    {name = "monteg179},
+    {name = "sorath2},
 ]
 description = ""
 readme = "README.md"
